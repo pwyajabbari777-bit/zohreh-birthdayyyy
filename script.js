@@ -1,152 +1,120 @@
-// Smooth Animation
-window.addEventListener("load",()=>{
-
-document.body.style.opacity="1";
-
+window.addEventListener("load", () => {
+    document.body.style.opacity = "1";
 });
 
-// Hearts
+// دکمه هدیه
+const giftBtn = document.querySelector(".btn");
+const overlay = document.getElementById("intro-overlay");
+const letter = document.getElementById("letter");
 
-function createHeart(){
+if (giftBtn && overlay && letter) {
+    giftBtn.addEventListener("click", function (e) {
+        e.preventDefault();
 
-const heart=document.createElement("div");
+        overlay.classList.add("show");
 
-heart.innerHTML="🤍";
+        setTimeout(() => {
+            overlay.classList.remove("show");
 
-heart.style.position="fixed";
+            letter.scrollIntoView({
+                behavior: "smooth"
+            });
+        }, 3000);
+    });
+}
 
-heart.style.left=Math.random()*100+"vw";
+// قلب‌ها
+function createHeart() {
 
-heart.style.top="100vh";
+    const heart = document.createElement("div");
 
-heart.style.fontSize=(15+Math.random()*25)+"px";
+    heart.innerHTML = "🤍";
 
-heart.style.opacity=Math.random();
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "-40px";
+    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+    heart.style.pointerEvents = "none";
+    heart.style.zIndex = "9999";
+    heart.style.animation = `fall ${4 + Math.random() * 3}s linear forwards`;
 
-heart.style.pointerEvents="none";
+    document.body.appendChild(heart);
 
-heart.style.animation=`float ${5+Math.random()*5}s linear forwards`;
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},10000);
+    setTimeout(() => {
+        heart.remove();
+    }, 7000);
 
 }
 
-setInterval(createHeart,700);
+setInterval(createHeart, 500);
 
-// CSS Animation
+// استایل انیمیشن قلب
+const style = document.createElement("style");
 
-const style=document.createElement("style");
-
-style.innerHTML=`
-
-@keyframes float{
-
+style.innerHTML = `
+@keyframes fall{
 0%{
-
-transform:translateY(0) rotate(0deg);
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(-120vh) rotate(360deg);
-
+transform:translateY(-50px) rotate(0deg);
 opacity:0;
-
 }
-
+20%{
+opacity:1;
 }
-
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
 `;
 
 document.head.appendChild(style);
 
-// Fade on scroll
+// نمایش نرم بخش‌ها
+const sections = document.querySelectorAll("section");
 
-const observer=new IntersectionObserver(entries=>{
+const observer = new IntersectionObserver((entries) => {
 
-entries.forEach(entry=>{
+    entries.forEach(entry => {
 
-if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0px)";
-
-}
-
-});
-
-});
-
-document.querySelectorAll("section").forEach(sec=>{
-
-sec.style.opacity="0";
-
-sec.style.transform="translateY(50px)";
-
-sec.style.transition="1s";
-
-observer.observe(sec);
-
-});
-
-// پایان سورپرایز
-
-window.addEventListener("scroll",()=>{
-
-if(window.innerHeight+window.scrollY>=document.body.offsetHeight-5){
-
-setTimeout(()=>{
-
-alert("🤍\n\nForever & Always\n\nI Love You Zohreh ❤️");
-
-},1000);
-
-}
-
-});
-const giftBtn = document.querySelector(".gift-button");
-const overlay = document.getElementById("intro-overlay");
-const letter = document.getElementById("letter");
-
-giftBtn.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    overlay.classList.add("show");
-
-    setTimeout(function(){
-
-        overlay.classList.remove("show");
-
-        setTimeout(function(){
-
-            letter.scrollIntoView({
-                behavior:"smooth"
-            });
-
-        },800);
-
-    },3500);
-
-});
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
         }
+
     });
+
+}, {
+    threshold: 0.15
 });
 
-document.querySelectorAll(".fade").forEach(el=>{
-    observer.observe(el);
+sections.forEach(section => {
+
+    section.style.opacity = "0";
+    section.style.transform = "translateY(40px)";
+    section.style.transition = "all .8s ease";
+
+    observer.observe(section);
+
+});
+
+// پیام پایان
+let showed = false;
+
+window.addEventListener("scroll", () => {
+
+    if (showed) return;
+
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 20) {
+
+        showed = true;
+
+        setTimeout(() => {
+
+            alert("🤍\n\nForever & Always\n\nI Love You Zohreh ❤️");
+
+        }, 800);
+
+    }
+
 });
