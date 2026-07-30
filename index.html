@@ -224,7 +224,33 @@ I Love You ❤️
 </section>
 
 <script src="script.js"></script>
+<div id="hearts"></div>
 
+<script>
+const hearts=document.getElementById("hearts");
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="🤍";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(4+Math.random()*5)+"s";
+heart.style.fontSize=(18+Math.random()*20)+"px";
+
+hearts.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},9000);
+
+}
+
+setInterval(createHeart,350);
+</script>
 </body>
 
 </html>
