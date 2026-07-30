@@ -274,3 +274,62 @@ opacity:0;
 }
 
 }
+/* Smooth Scroll */
+html{
+    scroll-behavior:smooth;
+}
+
+/* متن وسط صفحه */
+.message{
+    max-width:700px;
+    width:90%;
+    margin:0 auto;
+    text-align:center;
+    line-height:2.2;
+}
+
+/* ظاهر متن */
+.message p{
+    font-size:20px;
+    margin-bottom:18px;
+}
+
+/* دکمه */
+button{
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px rgba(255,255,255,.3);
+}
+
+/* اسکرول بار */
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#888;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#fff;
+}
+
+/* انیمیشن ظاهر شدن */
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
