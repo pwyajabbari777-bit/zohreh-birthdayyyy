@@ -391,3 +391,25 @@ transform:scale(1);
 
 }
 }
+const btn=document.querySelector(".btn");
+const gift=document.getElementById("giftAnimation");
+
+btn.addEventListener("click",function(e){
+
+e.preventDefault();
+
+gift.classList.add("show");
+
+setTimeout(()=>{
+
+gift.classList.remove("show");
+
+document.querySelector(".letter").scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+},3500);
+
+});
