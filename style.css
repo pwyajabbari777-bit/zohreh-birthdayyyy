@@ -413,3 +413,17 @@ behavior:"smooth"
 },3500);
 
 });
+.letter{
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    direction: rtl;
+}
+
+.letter p{
+    text-align: justify;
+    direction: rtl;
+    line-height: 2.2;
+}
