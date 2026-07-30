@@ -14,7 +14,8 @@ color:white;
 font-family:'Vazirmatn',sans-serif;
 
 overflow-x:hidden;
-
+display:flex;
+    justify-content:center;
 }
 
 .hero{
@@ -229,7 +230,11 @@ background:rgba(255
         opacity:1;
         transform:translateY(0);
       html{
-    zoom: 90%;
+ .container{
+    width:100%;
+    max-width:430px;
+    margin:0 auto;
+}   
       }
-    }
+    
 }
