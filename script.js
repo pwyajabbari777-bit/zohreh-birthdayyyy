@@ -114,3 +114,28 @@ alert("🤍\n\nForever & Always\n\nI Love You Zohreh ❤️");
 }
 
 });
+const giftBtn = document.querySelector(".gift-button");
+const overlay = document.getElementById("intro-overlay");
+const letter = document.getElementById("letter");
+
+giftBtn.addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    overlay.classList.add("show");
+
+    setTimeout(function(){
+
+        overlay.classList.remove("show");
+
+        setTimeout(function(){
+
+            letter.scrollIntoView({
+                behavior:"smooth"
+            });
+
+        },800);
+
+    },3500);
+
+});
