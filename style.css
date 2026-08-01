@@ -19,8 +19,9 @@ body{
     color:#fff;
 
     font-family:'Vazirmatn',sans-serif;
-
-    overflow-x:hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    }
 
 }
 
