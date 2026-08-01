@@ -27,7 +27,9 @@ function createHeart(){
 
 }
 
-setInterval(createHeart,350);
+for(let i = 0; i < 20; i++){
+    setTimeout(createHeart, i * 500);
+}
 
 // اسکرول به نامه
 
