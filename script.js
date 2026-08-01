@@ -72,3 +72,31 @@ fill:"forwards"
 });
 
 observer.observe(letter);
+// =========================
+// Music Player
+// =========================
+
+const musicButton = document.querySelector(".musicBtn");
+const music = document.getElementById("birthdayMusic");
+
+if(musicButton && music){
+
+    musicButton.addEventListener("click",()=>{
+
+        if(music.paused){
+
+            music.play();
+
+            musicButton.innerHTML="⏸ توقف آهنگ";
+
+        }else{
+
+            music.pause();
+
+            musicButton.innerHTML="🎧 پخش آهنگ";
+
+        }
+
+    });
+
+}
