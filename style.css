@@ -1,5 +1,5 @@
 /* ===========================
-   HAPPY BIRTHDAY ZOHREH
+   RESET
 =========================== */
 
 *{
@@ -14,20 +14,19 @@ scroll-behavior:smooth;
 
 body{
 
-background:
-radial-gradient(circle at top,#2b134d 0%,#12051f 45%,#050505 100%);
-
 font-family:'Vazirmatn',sans-serif;
 
-color:white;
+background:#080414;
 
 overflow-x:hidden;
 
-min-height:100vh;
+color:#fff;
 
 }
 
-/* ---------- Stars ---------- */
+/* ===========================
+   BACKGROUND
+=========================== */
 
 #stars{
 
@@ -35,23 +34,22 @@ position:fixed;
 
 inset:0;
 
-z-index:-3;
+z-index:-5;
 
 background-image:
 
 radial-gradient(#ffffffaa 1px,transparent 1px),
+radial-gradient(#9d6dff88 1px,transparent 1px);
 
-radial-gradient(#b57cff88 1px,transparent 1px);
+background-size:90px 90px,180px 180px;
 
-background-size:90px 90px,170px 170px;
+opacity:.35;
 
-animation:stars 60s linear infinite;
-
-opacity:.28;
+animation:starsMove 80s linear infinite;
 
 }
 
-@keyframes stars{
+@keyframes starsMove{
 
 from{
 
@@ -61,13 +59,23 @@ transform:translateY(0);
 
 to{
 
-transform:translateY(-250px);
+transform:translateY(-300px);
 
 }
 
 }
 
-/* ---------- Hearts ---------- */
+#particles{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:-4;
+
+}
 
 #hearts{
 
@@ -79,11 +87,13 @@ pointer-events:none;
 
 overflow:hidden;
 
-z-index:1;
+z-index:999;
 
 }
 
-/* ---------- Hero ---------- */
+/* ===========================
+   HERO
+=========================== */
 
 .hero{
 
@@ -101,7 +111,7 @@ overflow:hidden;
 
 }
 
-.cover{
+.hero-image{
 
 position:absolute;
 
@@ -115,57 +125,115 @@ filter:
 
 brightness(.28)
 
-blur(1px);
+blur(2px);
+
+transform:scale(1.05);
 
 }
 
-.overlay{
+.hero-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(10,0,20,.15),
+
+rgba(8,0,18,.70)
+
+);
+
+}
+
+/* ===========================
+   GLASS CARD
+=========================== */
+
+.glass-card{
 
 position:relative;
 
-z-index:10;
+z-index:20;
 
-text-align:center;
+width:min(430px,90%);
 
-padding:25px;
+padding:40px;
 
-backdrop-filter:blur(8px);
+border-radius:35px;
 
-background:rgba(255,255,255,.05);
+background:
 
-border:1px solid rgba(255,255,255,.12);
+rgba(255,255,255,.08);
 
-border-radius:28px;
+backdrop-filter:
+
+blur(18px);
+
+border:
+
+1px solid rgba(255,255,255,.15);
 
 box-shadow:
 
-0 0 40px rgba(124,58,237,.35);
+0 0 40px rgba(120,60,255,.35);
+
+text-align:center;
 
 }
 
-.overlay h3{
+.top-heart{
+
+font-size:38px;
+
+margin-bottom:15px;
+
+animation:heartBeat 2s infinite;
+
+}
+
+@keyframes heartBeat{
+
+0%,100%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.15);
+
+}
+
+}
+
+.glass-card h3{
 
 font-family:'Great Vibes',cursive;
 
-font-size:40px;
+font-size:42px;
 
 color:#d8b4fe;
 
-margin-bottom:12px;
+margin-bottom:10px;
 
 }
 
-.overlay h1{
+.glass-card h1{
 
-font-size:58px;
-
-font-weight:700;
+font-size:52px;
 
 margin-bottom:15px;
 
 }
 
-.date{
+.glass-card p{
 
 font-size:20px;
 
@@ -174,77 +242,63 @@ color:#ddd;
 margin-bottom:35px;
 
 }
+/* ===========================
+   BUTTON
+=========================== */
 
-.btn{
+#openLetter{
 
-background:#7c3aed;
+width:100%;
 
-color:white;
+padding:18px;
 
 border:none;
 
-padding:18px 46px;
+border-radius:60px;
+
+background:linear-gradient(135deg,#8b5cf6,#6d28d9);
+
+color:#fff;
 
 font-size:18px;
 
-border-radius:60px;
+font-weight:700;
 
 cursor:pointer;
 
 transition:.35s;
 
-box-shadow:
-
-0 0 30px rgba(124,58,237,.55);
+box-shadow:0 0 30px rgba(139,92,246,.45);
 
 }
 
-.btn:hover{
+#openLetter:hover{
 
-transform:translateY(-4px);
+transform:translateY(-4px) scale(1.03);
 
-box-shadow:
-
-0 0 45px rgba(168,85,247,.75);
+box-shadow:0 0 45px rgba(167,139,250,.8);
 
 }
+
 /* ===========================
-   SULLY & BOO
+   SULLY
 =========================== */
 
 .sully{
 
 position:absolute;
 
-left:35px;
+left:20px;
 
 bottom:20px;
 
-width:170px;
+width:180px;
 
-z-index:9;
+z-index:15;
 
 animation:sullyFloat 4s ease-in-out infinite;
 
-filter:drop-shadow(0 0 25px rgba(139,92,246,.45));
-
-}
-
-.boo{
-
-position:absolute;
-
-right:35px;
-
-bottom:18px;
-
-width:105px;
-
-z-index:9;
-
-animation:booFloat 3.6s ease-in-out infinite;
-
-filter:drop-shadow(0 0 20px rgba(255,255,255,.25));
+filter:drop-shadow(0 0 25px rgba(139,92,246,.35));
 
 }
 
@@ -258,9 +312,31 @@ transform:translateY(0);
 
 50%{
 
-transform:translateY(-14px);
+transform:translateY(-15px);
 
 }
+
+}
+
+/* ===========================
+   BOO
+=========================== */
+
+.boo{
+
+position:absolute;
+
+right:20px;
+
+bottom:20px;
+
+width:105px;
+
+z-index:15;
+
+animation:booFloat 3.6s ease-in-out infinite;
+
+filter:drop-shadow(0 0 20px rgba(255,255,255,.25));
 
 }
 
@@ -281,7 +357,7 @@ transform:translateY(-10px) rotate(4deg);
 }
 
 /* ===========================
-   MONSTERS DOOR
+   DOOR
 =========================== */
 
 #doorScene{
@@ -296,15 +372,15 @@ justify-content:center;
 
 align-items:center;
 
-background:#090411;
+background:#07030f;
 
 opacity:0;
 
 visibility:hidden;
 
-transition:.6s;
+transition:.5s;
 
-z-index:50;
+z-index:100;
 
 }
 
@@ -318,18 +394,16 @@ visibility:visible;
 
 .door{
 
-width:260px;
+width:250px;
 
 height:430px;
 
 position:relative;
 
-perspective:1000px;
-
 }
 
-.door-left,
-.door-right{
+.leftDoor,
+.rightDoor{
 
 position:absolute;
 
@@ -339,7 +413,7 @@ width:50%;
 
 height:100%;
 
-background:linear-gradient(180deg,#8b5cf6,#5b21b6);
+background:linear-gradient(#8b5cf6,#4c1d95);
 
 transition:1s;
 
@@ -347,64 +421,256 @@ box-shadow:0 0 40px rgba(139,92,246,.6);
 
 }
 
-.door-left{
+.leftDoor{
 
 left:0;
 
-border-radius:18px 0 0 18px;
+border-radius:20px 0 0 20px;
 
 transform-origin:left;
 
 }
 
-.door-right{
+.rightDoor{
 
 right:0;
 
-border-radius:0 18px 18px 0;
+border-radius:0 20px 20px 0;
 
 transform-origin:right;
 
 }
 
-#doorScene.open .door-left{
+#doorScene.open .leftDoor{
 
 transform:rotateY(-105deg);
 
 }
 
-#doorScene.open .door-right{
+#doorScene.open .rightDoor{
 
 transform:rotateY(105deg);
 
 }
 
 /* ===========================
-   LETTER
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.glass-card{
+
+width:92%;
+
+padding:28px;
+
+}
+
+.glass-card h1{
+
+font-size:40px;
+
+}
+
+.glass-card h3{
+
+font-size:34px;
+
+}
+
+.sully{
+
+width:120px;
+
+left:5px;
+
+}
+
+.boo{
+
+width:70px;
+
+right:5px;
+
+}
+
+   }
+/* ===========================
+   LETTER SECTION
 =========================== */
 
 .hidden{
-
 display:none;
-
 }
 
 #letterSection{
-
 padding:80px 20px;
-
 display:flex;
-
 justify-content:center;
-
+align-items:center;
+min-height:100vh;
 }
 
-.glassCard{
+.letter-card{
 
 width:min(850px,92%);
 
-background:rgba(255,255,255,.06);
+background:rgba(255,255,255,.08);
 
 backdrop-filter:blur(18px);
 
-border:1px solid rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:35px;
+
+padding:50px;
+
+box-shadow:0 0 45px rgba(139,92,246,.35);
+
+animation:fadeUp .8s ease;
+
+}
+
+.letter-card h2{
+
+text-align:center;
+
+font-size:38px;
+
+margin-bottom:40px;
+
+color:#e9d5ff;
+
+}
+
+.letter-content{
+
+font-size:20px;
+
+line-height:2.5;
+
+color:#f8f8f8;
+
+}
+
+.letter-content p{
+
+margin-bottom:25px;
+
+}
+
+.ending-photo{
+
+margin:55px auto 30px;
+
+text-align:center;
+
+}
+
+.ending-photo img{
+
+width:100%;
+
+max-width:450px;
+
+border-radius:25px;
+
+border:4px solid rgba(255,255,255,.12);
+
+box-shadow:
+0 0 35px rgba(139,92,246,.45);
+
+transition:.4s;
+
+}
+
+.ending-photo img:hover{
+
+transform:scale(1.03);
+
+}
+
+.ending-text{
+
+margin-top:40px;
+
+text-align:center;
+
+}
+
+.ending-text h2{
+
+font-family:'Great Vibes',cursive;
+
+font-size:48px;
+
+color:#d8b4fe;
+
+margin-bottom:10px;
+
+}
+
+.ending-text h1{
+
+font-size:42px;
+
+margin-bottom:15px;
+
+}
+
+.ending-text p{
+
+font-size:20px;
+
+color:#d4d4d8;
+
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes glow{
+
+0%,100%{
+
+box-shadow:0 0 25px rgba(139,92,246,.35);
+
+}
+
+50%{
+
+box-shadow:0 0 55px rgba(192,132,252,.7);
+
+}
+
+}
+
+.glass-card,
+.letter-card{
+
+animation:fadeUp .8s ease,
+glow 5s ease-in-out infinite;
+
+}
