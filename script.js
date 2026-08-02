@@ -156,3 +156,14 @@ setInterval(() => {
     btn.classList.toggle("pulse");
 
 }, 1800);
+.pulse{
+
+transform:scale(1.04);
+
+box-shadow:
+0 0 20px #b388ff,
+0 0 45px #8b5cf6;
+
+transition:.5s;
+
+    }
