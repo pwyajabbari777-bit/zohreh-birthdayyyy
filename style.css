@@ -453,3 +453,68 @@ font-size:42px;
 }
 
 .overlay h
+   /* ---------- Sullivan ---------- */
+
+.sully{
+position:absolute;
+left:35px;
+bottom:15px;
+width:170px;
+z-index:3;
+pointer-events:none;
+animation:sullyFloat 4s ease-in-out infinite;
+}
+
+/* ---------- Boo ---------- */
+
+.boo{
+position:absolute;
+right:35px;
+bottom:15px;
+width:105px;
+z-index:3;
+pointer-events:none;
+animation:booFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes sullyFloat{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+@keyframes booFloat{
+
+0%,100%{
+transform:translateY(0px) rotate(-4deg);
+}
+
+50%{
+transform:translateY(-10px) rotate(4deg);
+}
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:768px){
+
+.sully{
+width:130px;
+left:8px;
+bottom:10px;
+}
+
+.boo{
+width:82px;
+right:8px;
+bottom:10px;
+}
+
+}
