@@ -225,3 +225,52 @@ openBtn.addEventListener("click", () => {
     }, 2000);
 
 });
+// =========================
+// SMOOTH PHOTO EFFECT
+// =========================
+
+const photo = document.querySelector(".ending-photo img");
+
+if(photo){
+
+window.addEventListener("scroll",()=>{
+
+const rect = photo.getBoundingClientRect();
+
+if(rect.top < window.innerHeight-100){
+
+photo.style.transform="scale(1)";
+photo.style.opacity="1";
+
+}else{
+
+photo.style.transform="scale(.92)";
+photo.style.opacity=".3";
+
+}
+
+});
+
+}
+
+// =========================
+// TITLE EFFECT
+// =========================
+
+const title = document.querySelector(".ending-text h1");
+
+if(title){
+
+setInterval(()=>{
+
+title.style.textShadow="0 0 30px #c084fc";
+
+setTimeout(()=>{
+
+title.style.textShadow="0 0 10px #8b5cf6";
+
+},700);
+
+},2000);
+
+    }
