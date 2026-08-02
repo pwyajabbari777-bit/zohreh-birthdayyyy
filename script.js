@@ -156,3 +156,72 @@ setInterval(() => {
     btn.classList.toggle("pulse");
 
 }, 1800);
+
+// =========================
+// MAGIC INTRO
+// =========================
+
+function flashEffect() {
+
+    const flash = document.createElement("div");
+
+    flash.style.position = "fixed";
+    flash.style.inset = "0";
+    flash.style.background =
+        "radial-gradient(circle,#b388ff55,#000000dd)";
+    flash.style.zIndex = "9999";
+    flash.style.opacity = "0";
+    flash.style.transition = ".8s";
+
+    document.body.appendChild(flash);
+
+    setTimeout(() => {
+        flash.style.opacity = "1";
+    }, 50);
+
+    setTimeout(() => {
+        flash.style.opacity = "0";
+    }, 900);
+
+    setTimeout(() => {
+        flash.remove();
+    }, 1700);
+
+}
+
+
+openBtn.addEventListener("click", flashEffect);
+// =========================
+// LETTER FADE IN
+// =========================
+
+function animateLetter() {
+
+    const items = document.querySelectorAll(".letter-content p");
+
+    items.forEach((item, index) => {
+
+        item.style.opacity = "0";
+        item.style.transform = "translateY(25px)";
+
+        setTimeout(() => {
+
+            item.style.transition = "all .8s ease";
+
+            item.style.opacity = "1";
+            item.style.transform = "translateY(0)";
+
+        }, index * 900);
+
+    });
+
+}
+
+// وقتی نامه باز شد اجرا شود
+openBtn.addEventListener("click", () => {
+
+    setTimeout(() => {
+        animateLetter();
+    }, 2000);
+
+});
