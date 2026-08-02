@@ -1,449 +1,191 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
 
-    font-family:"Vazirmatn",sans-serif;
+font-family:"Vazirmatn",sans-serif;
 
-    background:linear-gradient(180deg,#12051d,#1d0930,#0f0618);
+background:
+linear-gradient(180deg,#12041f 0%,#1d0930 50%,#12041f 100%);
 
-    color:#fff;
+color:white;
 
-    overflow-x:hidden;
+overflow-x:hidden;
 
 }
-
-/* ==========================
-      HERO
-========================== */
 
 .hero{
 
-    min-height:100vh;
+height:100vh;
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:center;
+align-items:center;
 
-    position:relative;
-
-    overflow:hidden;
+position:relative;
 
 }
 
-.hero-overlay{
+.overlay{
 
-    position:absolute;
+position:absolute;
 
-    inset:0;
+inset:0;
 
-    background:radial-gradient(circle at center,
-        rgba(168,85,247,.18),
-        transparent 70%);
-
-    z-index:1;
-
-}
-
-.hero-content{
-
-    position:relative;
-
-    z-index:2;
-
-    text-align:center;
-
-    width:90%;
-
-    max-width:900px;
+background:
+radial-gradient(circle,
+rgba(168,85,247,.20),
+transparent 70%);
 
 }
 
-.hero-image{
+.content{
 
-    position:relative;
+position:relative;
 
-    width:320px;
+z-index:2;
 
-    margin:auto;
-
-}
-
-.hero-image img:first-child{
-
-    width:100%;
-
-    border-radius:25px;
-
-    box-shadow:
-    0 20px 60px rgba(0,0,0,.45);
+text-align:center;
 
 }
 
-.hero h1{
+.photo-box{
 
-    margin-top:35px;
+position:relative;
 
-    font-size:58px;
+width:320px;
 
-    font-weight:900;
-
-}
-
-.hero h1 span{
-
-    color:#f6e8ff;
+margin:auto;
 
 }
 
-.hero p{
+.hero-photo{
 
-    margin-top:15px;
+width:100%;
 
-    font-size:20px;
+border-radius:24px;
 
-    color:#d9c7ff;
+box-shadow:
+0 25px 60px rgba(0,0,0,.45);
 
-}
-/* ==========================
-      BUTTON
-========================== */
-
-#openLetter{
-
-    margin-top:35px;
-
-    padding:16px 42px;
-
-    border:none;
-
-    border-radius:50px;
-
-    background:linear-gradient(135deg,#8b5cf6,#a855f7);
-
-    color:#fff;
-
-    font-size:18px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-    box-shadow:0 10px 35px rgba(168,85,247,.45);
+display:block;
 
 }
 
-#openLetter:hover{
+h1{
 
-    transform:translateY(-4px) scale(1.03);
+font-size:55px;
 
-    box-shadow:0 15px 45px rgba(168,85,247,.7);
+font-weight:900;
+
+margin-top:35px;
 
 }
 
+h2{
 
-/* ==========================
-      SULLY & BOO
-========================== */
+font-size:38px;
+
+color:#f3e8ff;
+
+margin-top:10px;
+
+}
+
+p{
+
+margin-top:12px;
+
+color:#ddd6fe;
+
+font-size:18px;
+
+}
+
+button{
+
+margin-top:35px;
+
+padding:16px 40px;
+
+border:none;
+
+border-radius:999px;
+
+background:#8b5cf6;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
+background:#a855f7;
+
+}
+/* ===== Sully & Boo ===== */
 
 .sully{
-
-    position:absolute;
-
-    width:140px;
-
-    left:-90px;
-
-    bottom:-5px;
-
-    animation:float 4s ease-in-out infinite;
-
+position:absolute;
+width:120px;
+left:-70px;
+bottom:10px;
+z-index:3;
+animation:float 4s ease-in-out infinite;
 }
 
 .boo{
-
-    position:absolute;
-
-    width:85px;
-
-    right
-   /* ==========================
-      LETTER SECTION
-========================== */
-
-.letter-section{
-
-    position:relative;
-
-    min-height:100vh;
-
-    padding:120px 20px 80px;
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:flex-start;
-
-    overflow:hidden;
-
+position:absolute;
+width:75px;
+right:-40px;
+bottom:15px;
+z-index:3;
+animation:float 3.5s ease-in-out infinite;
 }
 
-.letter-section.show{
-
-    display:flex;
-
-}
-
-.door-container{
-
-    position:absolute;
-
-    inset:0;
-
-    display:flex;
-
-    z-index:20;
-
-    pointer-events:none;
-
-}
-
-.door{
-
-    width:50%;
-
-    background:linear-gradient(180deg,#2b1242,#17091f);
-
-    transition:transform 1.6s ease;
-
-    box-shadow:inset 0 0 40px rgba(255,255,255,.08);
-
-}
-
-.left-door{
-
-    border-right:2px solid rgba(255,255,255,.08);
-
-}
-
-.right-door{
-
-    border-left:2px solid rgba(255,255,255,.08);
-
-}
-
-.letter-section.open .left-door{
-
-    transform:translateX(-100%);
-
-}
-
-.letter-section.open .right-door{
-
-    transform:translateX(100%);
-
-}
-
-
-/* ==========================
-      LETTER CARD
-========================== */
-
-.letter-card{
-
-    width:100%;
-
-    max-width:850px;
-
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,.12);
-
-    border-radius:30px;
-
-    padding:50px 35px;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
-
-    opacity:0;
-
-    transform:translateY(40px);
-
-    transition:1
-   /* ==========================
-      ENDING PHOTO
-========================== */
-
-.ending-photo{
-
-    display:flex;
-
-    justify-content:center;
-
-    margin:70px 0 50px;
-
-}
-
-.ending-photo img{
-
-    width:100%;
-
-    max-width:420px;
-
-    border-radius:25px;
-
-    box-shadow:0 15px 45px rgba(0,0,0,.35);
-
-}
-
-
-/* ==========================
-      ENDING HUG
-========================== */
-
-.ending-hug{
-
-    position:relative;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:70px 0 50px;
-
-}
-
-
-/* هاله بنفش */
-
-.ending-hug::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:430px;
-
-    height:430px;
-
-    background:radial-gradient(circle,
-
-    rgba(168,85,247,.45) 0%,
-
-    rgba(168,85,247,.22) 40%,
-
-    rgba(168,85,247,0) 75%);
-
-    filter:blur(40px);
-
-    animation:purpleGlow 5s ease-in-out infinite;
-
-    z-index:0;
-
-}
-
-
-/* عکس */
-
-.ending-hug img{
-
-    position:relative;
-
-    z-index:2;
-
-    width:340px;
-
-    max-width:90%;
-
-    border-radius:25px;
-
-    box-shadow:0 15px 60px rgba(0,0,0,.45);
-
-    animation:hugFloat 4s ease-in-out infinite;
-
-}
-
-
-/* حرکت آرام عکس */
-
-@keyframes hugFloat{
+@keyframes float{
 
 0%,100%{
-
-transform:translateY(0);
-
+transform:translateY(0px);
 }
 
 50%{
-
 transform:translateY(-10px);
-
 }
 
 }
-
-
-/* هاله متحرک */
-
-@keyframes purpleGlow{
-
-0%,100%{
-
-transform:scale(1);
-
-opacity:.75;
-
-}
-
-50%{
-
-transform:scale(1.12);
-
-opacity:1;
-
-}
-
-}
-
-
-/* موبایل */
 
 @media(max-width:768px){
 
-.ending-photo img{
-
-max-width:300px;
-
+.photo-box{
+width:260px;
 }
 
-.ending-hug img{
-
-width:250px;
-
+.sully{
+width:95px;
+left:-45px;
 }
 
-.ending-hug::before{
-
-width:300px;
-
-height:300px;
-
+.boo{
+width:60px;
+right:-25px;
 }
 
 }
