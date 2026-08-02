@@ -129,3 +129,30 @@ window.addEventListener("mousemove",(e)=>{
     `translate(${-x}px,${-y}px)`;
 
 });
+// =========================
+// STARS PARALLAX EFFECT
+// =========================
+
+const stars = document.getElementById("stars");
+
+window.addEventListener("mousemove", (e) => {
+
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+    stars.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+});
+
+// =========================
+// BUTTON GLOW
+// =========================
+
+const btn = document.getElementById("openLetter");
+
+setInterval(() => {
+
+    btn.classList.toggle("pulse");
+
+}, 1800);
