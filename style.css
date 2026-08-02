@@ -1,5 +1,5 @@
 /* ===========================
-   Happy Birthday Zohreh
+   HAPPY BIRTHDAY ZOHREH
 =========================== */
 
 *{
@@ -9,14 +9,13 @@ box-sizing:border-box;
 }
 
 html{
-
 scroll-behavior:smooth;
-
 }
 
 body{
 
-background:linear-gradient(180deg,#050505,#12051d,#050505);
+background:
+radial-gradient(circle at top,#2b134d 0%,#12051f 45%,#050505 100%);
 
 font-family:'Vazirmatn',sans-serif;
 
@@ -24,33 +23,31 @@ color:white;
 
 overflow-x:hidden;
 
-position:relative;
+min-height:100vh;
 
 }
 
-/* ===========================
-Stars
-=========================== */
+/* ---------- Stars ---------- */
 
-.stars{
+#stars{
 
 position:fixed;
 
 inset:0;
 
+z-index:-3;
+
 background-image:
-radial-gradient(#ffffff88 1px,transparent 1px),
-radial-gradient(#c084fc88 1px,transparent 1px);
 
-background-size:120px 120px,180px 180px;
+radial-gradient(#ffffffaa 1px,transparent 1px),
 
-animation:stars 90s linear infinite;
+radial-gradient(#b57cff88 1px,transparent 1px);
 
-opacity:.18;
+background-size:90px 90px,170px 170px;
 
-pointer-events:none;
+animation:stars 60s linear infinite;
 
-z-index:0;
+opacity:.28;
 
 }
 
@@ -64,17 +61,15 @@ transform:translateY(0);
 
 to{
 
-transform:translateY(-220px);
+transform:translateY(-250px);
 
 }
 
 }
 
-/* ===========================
-Particles
-=========================== */
+/* ---------- Hearts ---------- */
 
-#particles{
+#hearts{
 
 position:fixed;
 
@@ -82,15 +77,13 @@ inset:0;
 
 pointer-events:none;
 
-z-index:1;
-
 overflow:hidden;
+
+z-index:1;
 
 }
 
-/* ===========================
-Hero
-=========================== */
+/* ---------- Hero ---------- */
 
 .hero{
 
@@ -118,37 +111,35 @@ height:100%;
 
 object-fit:cover;
 
-filter:brightness(.25);
+filter:
+
+brightness(.28)
+
+blur(1px);
 
 }
-
-.cover::after{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:rgba(124,58,237,.15);
-
-}
-
-/* ===========================
-Overlay
-=========================== */
 
 .overlay{
 
 position:relative;
 
-z-index:5;
+z-index:10;
 
 text-align:center;
 
-padding:30px;
+padding:25px;
 
-backdrop-filter:blur(4px);
+backdrop-filter:blur(8px);
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.12);
+
+border-radius:28px;
+
+box-shadow:
+
+0 0 40px rgba(124,58,237,.35);
 
 }
 
@@ -156,7 +147,7 @@ backdrop-filter:blur(4px);
 
 font-family:'Great Vibes',cursive;
 
-font-size:42px;
+font-size:40px;
 
 color:#d8b4fe;
 
@@ -166,7 +157,9 @@ margin-bottom:12px;
 
 .overlay h1{
 
-font-size:60px;
+font-size:58px;
+
+font-weight:700;
 
 margin-bottom:15px;
 
@@ -174,7 +167,7 @@ margin-bottom:15px;
 
 .date{
 
-font-size:22px;
+font-size:20px;
 
 color:#ddd;
 
@@ -182,307 +175,91 @@ margin-bottom:35px;
 
 }
 
-#openLetter{
+.btn{
 
 background:#7c3aed;
 
-border:none;
-
 color:white;
 
-padding:16px 40px;
+border:none;
 
-border-radius:50px;
+padding:18px 46px;
 
 font-size:18px;
+
+border-radius:60px;
 
 cursor:pointer;
 
 transition:.35s;
 
-box-shadow:0 0 30px rgba(124,58,237,.45);
+box-shadow:
+
+0 0 30px rgba(124,58,237,.55);
 
 }
 
-#openLetter:hover{
+.btn:hover{
 
-transform:scale(1.06);
-
-background:#8b5cf6;
-
-}
-/* ===========================
-Door
-=========================== */
-
-#door{
-
-position:fixed;
-
-left:50%;
-
-top:50%;
-
-transform:translate(-50%,-50%);
-
-font-size:90px;
-
-opacity:0;
-
-pointer-events:none;
-
-transition:1s;
-
-z-index:20;
-
-}
-
-#door.show{
-
-opacity:1;
-
-transform:translate(-50%,-50%) scale(1.15);
-
-}
-
-/* ===========================
-Letter
-=========================== */
-
-.letter{
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-padding:120px 20px;
-
-position:relative;
-
-z-index:5;
-
-}
-
-.letter-box{
-
-width:100%;
-
-max-width:820px;
-
-background:rgba(255,255,255,.06);
-
-backdrop-filter:blur(12px);
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:30px;
-
-padding:60px 35px;
-
-box-shadow:0 0 50px rgba(124,58,237,.18);
-
-}
-
-.letter-box h2{
-
-text-align:center;
-
-font-size:34px;
-
-color:#d8b4fe;
-
-margin-bottom:40px;
-
-}
-
-.letter-box p{
-
-font-size:21px;
-
-line-height:2.4;
-
-text-align:center;
-
-color:#efefef;
-
-margin-bottom:35px;
-
-}
-
-/* ===========================
-Divider
-=========================== */
-
-.divider{
-
-text-align:center;
-
-font-size:34px;
-
-margin:45px 0;
-
-letter-spacing:8px;
-
-color:#c084fc;
-
-}
-
-/* ===========================
-Memory
-=========================== */
-
-.memory{
-
-display:flex;
-
-justify-content:center;
-
-margin:60px 0;
-
-}
-
-.memory img{
-
-width:320px;
-
-max-width:90%;
-
-border-radius:22px;
-
-border:10px solid white;
+transform:translateY(-4px);
 
 box-shadow:
 
-0 0 35px rgba(192,132,252,.35),
-
-0 15px 40px rgba(0,0,0,.45);
-
-transform:rotate(-3deg);
-
-transition:.45s;
-
-}
-
-.memory img:hover{
-
-transform:rotate(0deg) scale(1.03);
+0 0 45px rgba(168,85,247,.75);
 
 }
 /* ===========================
-Ending
+   SULLY & BOO
 =========================== */
-
-.ending{
-
-text-align:center;
-
-margin-top:70px;
-
-}
-
-.boo{
-
-font-size:55px;
-
-margin-bottom:25px;
-
-animation:float 3s ease-in-out infinite;
-
-}
-
-@keyframes float{
-
-0%{transform:translateY(0);}
-
-50%{transform:translateY(-12px);}
-
-100%{transform:translateY(0);}
-
-}
-
-.final-heart{
-
-font-size:70px;
-
-margin:35px 0;
-
-animation:heartbeat 2s infinite;
-
-}
-
-@keyframes heartbeat{
-
-0%{transform:scale(1);}
-
-25%{transform:scale(1.12);}
-
-50%{transform:scale(1);}
-
-75%{transform:scale(1.15);}
-
-100%{transform:scale(1);}
-
-}
-
-.ending h3{
-
-font-family:'Great Vibes',cursive;
-
-font-size:48px;
-
-color:#d8b4fe;
-
-margin-top:20px;
-
-}
-
-/* ===========================
-Responsive
-=========================== */
-
-@media(max-width:768px){
-
-.overlay h1{
-
-font-size:42px;
-
-}
-   /* ---------- Sullivan ---------- */
 
 .sully{
+
 position:absolute;
+
 left:35px;
-bottom:15px;
+
+bottom:20px;
+
 width:170px;
-z-index:3;
-pointer-events:none;
+
+z-index:9;
+
 animation:sullyFloat 4s ease-in-out infinite;
+
+filter:drop-shadow(0 0 25px rgba(139,92,246,.45));
+
 }
 
-/* ---------- Boo ---------- */
-
 .boo{
+
 position:absolute;
+
 right:35px;
-bottom:15px;
+
+bottom:18px;
+
 width:105px;
-z-index:3;
-pointer-events:none;
-animation:booFloat 3.5s ease-in-out infinite;
+
+z-index:9;
+
+animation:booFloat 3.6s ease-in-out infinite;
+
+filter:drop-shadow(0 0 20px rgba(255,255,255,.25));
+
 }
 
 @keyframes sullyFloat{
 
 0%,100%{
-transform:translateY(0px);
+
+transform:translateY(0);
+
 }
 
 50%{
-transform:translateY(-12px);
+
+transform:translateY(-14px);
+
 }
 
 }
@@ -490,29 +267,144 @@ transform:translateY(-12px);
 @keyframes booFloat{
 
 0%,100%{
-transform:translateY(0px) rotate(-4deg);
+
+transform:translateY(0) rotate(-3deg);
+
 }
 
 50%{
+
 transform:translateY(-10px) rotate(4deg);
-}
 
 }
 
-/* ---------- Mobile ---------- */
-
-@media(max-width:768px){
-
-.sully{
-width:130px;
-left:8px;
-bottom:10px;
 }
 
-.boo{
-width:82px;
-right:8px;
-bottom:10px;
-}
+/* ===========================
+   MONSTERS DOOR
+=========================== */
+
+#doorScene{
+
+position:fixed;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#090411;
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.6s;
+
+z-index:50;
 
 }
+
+#doorScene.show{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+.door{
+
+width:260px;
+
+height:430px;
+
+position:relative;
+
+perspective:1000px;
+
+}
+
+.door-left,
+.door-right{
+
+position:absolute;
+
+top:0;
+
+width:50%;
+
+height:100%;
+
+background:linear-gradient(180deg,#8b5cf6,#5b21b6);
+
+transition:1s;
+
+box-shadow:0 0 40px rgba(139,92,246,.6);
+
+}
+
+.door-left{
+
+left:0;
+
+border-radius:18px 0 0 18px;
+
+transform-origin:left;
+
+}
+
+.door-right{
+
+right:0;
+
+border-radius:0 18px 18px 0;
+
+transform-origin:right;
+
+}
+
+#doorScene.open .door-left{
+
+transform:rotateY(-105deg);
+
+}
+
+#doorScene.open .door-right{
+
+transform:rotateY(105deg);
+
+}
+
+/* ===========================
+   LETTER
+=========================== */
+
+.hidden{
+
+display:none;
+
+}
+
+#letterSection{
+
+padding:80px 20px;
+
+display:flex;
+
+justify-content:center;
+
+}
+
+.glassCard{
+
+width:min(850px,92%);
+
+background:rgba(255,255,255,.06);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.12);
