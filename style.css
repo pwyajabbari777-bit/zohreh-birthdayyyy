@@ -685,3 +685,41 @@ box-shadow:
 transition:.5s;
 
 }
+/* MAGIC FLASH */
+
+.magicFlash{
+
+position:fixed;
+
+inset:0;
+
+background:
+radial-gradient(circle,#a855f755,#000);
+
+pointer-events:none;
+
+z-index:9999;
+
+animation:magic .9s forwards;
+
+}
+
+@keyframes magic{
+
+0%{
+
+opacity:0;
+
+}
+
+30%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+}
