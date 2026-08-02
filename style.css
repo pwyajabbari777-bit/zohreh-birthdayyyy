@@ -730,3 +730,22 @@ opacity:0;
 transform:translateY(25px);
 
 }
+/* PHOTO EFFECT */
+
+.ending-photo img{
+
+transform:scale(.92);
+
+opacity:.3;
+
+transition:1s;
+
+}
+
+/* TITLE */
+
+.ending-text h1{
+
+transition:.8s;
+
+}
