@@ -251,3 +251,87 @@ function flashEffect() {
 }
 
 openBtn.addEventListener("click", flashEffect);
+
+// =========================
+// LETTER FADE IN
+// =========================
+
+function animateLetter() {
+
+    const items = document.querySelectorAll(".letter-content p");
+
+    items.forEach((item, index) => {
+
+        item.style.opacity = "0";
+        item.style.transform = "translateY(25px)";
+
+        setTimeout(() => {
+
+            item.style.transition = "all .8s ease";
+
+            item.style.opacity = "1";
+            item.style.transform = "translateY(0)";
+
+        }, index * 900);
+
+    });
+
+}
+
+// وقتی نامه باز شد اجرا شود
+openBtn.addEventListener("click", () => {
+
+    setTimeout(() => {
+        animateLetter();
+    }, 2000);
+
+});
+// =========================
+// SMOOTH PHOTO EFFECT
+// =========================
+
+const photo = document.querySelector(".ending-photo img");
+
+if(photo){
+
+window.addEventListener("scroll",()=>{
+
+const rect = photo.getBoundingClientRect();
+
+if(rect.top < window.innerHeight-100){
+
+photo.style.transform="scale(1)";
+photo.style.opacity="1";
+
+}else{
+
+photo.style.transform="scale(.92)";
+photo.style.opacity=".3";
+
+}
+
+});
+
+}
+
+// =========================
+// TITLE EFFECT
+// =========================
+
+const title = document.querySelector(".ending-text h1");
+
+if(title){
+
+setInterval(()=>{
+
+title.style.textShadow="0 0 30px #c084fc";
+
+setTimeout(()=>{
+
+title.style.textShadow="0 0 10px #8b5cf6";
+
+},700);
+
+},2000);
+
+}
