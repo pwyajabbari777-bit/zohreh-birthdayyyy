@@ -1,118 +1,124 @@
-// =========================
-// Happy Birthday Zohreh
-// =========================
+// ==========================
+// HAPPY BIRTHDAY ZOHREH
+// ==========================
 
 const openBtn = document.getElementById("openLetter");
-const letter = document.getElementById("letter");
-const door = document.getElementById("door");
-const particles = document.getElementById("particles");
-
-// نامه اول مخفی باشد
-letter.style.display = "none";
+const doorScene = document.getElementById("doorScene");
+const letterSection = document.getElementById("letterSection");
 
 // باز شدن نامه
 openBtn.addEventListener("click", () => {
 
-    door.classList.add("show");
+    doorScene.classList.add("show");
 
     setTimeout(() => {
+        doorScene.classList.add("open");
+    }, 300);
 
-        door.classList.remove("show");
+    setTimeout(() => {
+        doorScene.classList.remove("show");
+        doorScene.classList.remove("open");
 
-        letter.style.display = "flex";
+        document.querySelector(".hero").style.display = "none";
 
-        letter.scrollIntoView({
+        letterSection.classList.remove("hidden");
+
+        window.scrollTo({
+            top: 0,
             behavior: "smooth"
         });
 
-    }, 900);
+    }, 1800);
 
 });
 
-// =========================
-// ذرات بنفش
-// =========================
+// ==========================
+// HEARTS
+// ==========================
 
-function createParticle() {
+const hearts = document.getElementById("hearts");
 
-    const p = document.createElement("div");
+function createHeart(){
 
-    p.innerHTML = Math.random() > 0.5 ? "💜" : "✨";
+    const heart = document.createElement("div");
 
-    p.style.position = "absolute";
-    p.style.left = Math.random() * 100 + "vw";
-    p.style.top = "-40px";
-    p.style.fontSize = (14 + Math.random() * 18) + "px";
-    p.style.opacity = "0.8";
-    p.style.pointerEvents = "none";
+    heart.innerHTML = "💜";
 
-    p.animate(
-        [
-            {
-                transform: "translateY(0px) rotate(0deg)",
-                opacity: 0.9
-            },
-            {
-                transform: `translateY(${window.innerHeight + 100}px) rotate(${360 + Math.random()*360}deg)`,
-                opacity: 0
-            }
-        ],
-        {
-            duration: 7000 + Math.random() * 3000,
-            easing: "linear"
-        }
-    );
+    heart.style.position = "absolute";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.top = "-40px";
 
-    particles.appendChild(p);
+    heart.style.fontSize = (16 + Math.random()*18) + "px";
 
-    setTimeout(() => {
-        p.remove();
-    }, 10000);
+    heart.style.opacity = Math.random();
+
+    heart.style.animation =
+        `fall ${6+Math.random()*5}s linear forwards`;
+
+    hearts.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },11000);
 
 }
 
-// هر ۱.۵ ثانیه فقط یک ذره (بدون لرزش)
-setInterval(createParticle, 1500);
+setInterval(createHeart,700);
 
-// =========================
-// نمایش نرم عکس
-// =========================
+// ==========================
+// STYLE FOR HEARTS
+// ==========================
 
-const memory = document.querySelector(".memory img");
+const style = document.createElement("style");
 
-if(memory){
+style.innerHTML = `
 
-    const observer = new IntersectionObserver(entries=>{
+@keyframes fall{
 
-        entries.forEach(entry=>{
+0%{
 
-            if(entry.isIntersecting){
+transform:translateY(-20px) rotate(0deg);
 
-                entry.target.animate(
-                    [
-                        {
-                            opacity:0,
-                            transform:"translateY(40px)"
-                        },
-                        {
-                            opacity:1,
-                            transform:"translateY(0)"
-                        }
-                    ],
-                    {
-                        duration:1000,
-                        fill:"forwards"
-                    }
-                );
-
-                observer.unobserve(entry.target);
-
-            }
-
-        });
-
-    });
-
-    observer.observe(memory);
+opacity:0;
 
 }
+
+10%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(110vh) rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(style);
+
+// ==========================
+// PARALLAX
+// ==========================
+
+window.addEventListener("mousemove",(e)=>{
+
+    const sully=document.querySelector(".sully");
+    const boo=document.querySelector(".boo");
+
+    const x=(e.clientX/window.innerWidth-.5)*8;
+    const y=(e.clientY/window.innerHeight-.5)*8;
+
+    sully.style.transform=
+    `translate(${x}px,${y}px)`;
+
+    boo.style.transform=
+    `translate(${-x}px,${-y}px)`;
+
+});
