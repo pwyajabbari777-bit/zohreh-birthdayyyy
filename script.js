@@ -129,3 +129,125 @@ window.addEventListener("mousemove",(e)=>{
     `translate(${-x}px,${-y}px)`;
 
 });
+// =========================
+// LETTER ANIMATION
+// =========================
+
+const paragraphs = document.querySelectorAll(".letter-content p");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+
+    });
+
+}, {
+    threshold: 0.2
+});
+
+paragraphs.forEach(p => {
+
+    p.style.opacity = "0";
+    p.style.transform = "translateY(30px)";
+    p.style.transition = "all .8s ease";
+
+    observer.observe(p);
+
+});
+
+// =========================
+// ENDING PHOTO ANIMATION
+// =========================
+
+const endingPhoto = document.querySelector(".ending-photo img");
+
+if (endingPhoto) {
+
+    endingPhoto.style.opacity = "0";
+    endingPhoto.style.transform = "scale(.9)";
+
+    const photoObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                endingPhoto.style.opacity = "1";
+                endingPhoto.style.transform = "scale(1)";
+                endingPhoto.style.transition = "all 1s ease";
+
+            }
+
+        });
+
+    });
+
+    photoObserver.observe(endingPhoto);
+
+}
+// =========================
+// STARS PARALLAX EFFECT
+// =========================
+
+const stars = document.getElementById("stars");
+
+window.addEventListener("mousemove", (e) => {
+
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+    stars.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+});
+
+// =========================
+// BUTTON GLOW
+// =========================
+
+const btn = document.getElementById("openLetter");
+
+setInterval(() => {
+
+    btn.classList.toggle("pulse");
+
+}, 1800);
+// =========================
+// MAGIC INTRO
+// =========================
+
+function flashEffect() {
+
+    const flash = document.createElement("div");
+
+    flash.style.position = "fixed";
+    flash.style.inset = "0";
+    flash.style.background =
+        "radial-gradient(circle,#b388ff55,#000000dd)";
+    flash.style.zIndex = "9999";
+    flash.style.opacity = "0";
+    flash.style.transition = ".8s";
+
+    document.body.appendChild(flash);
+
+    setTimeout(() => {
+        flash.style.opacity = "1";
+    }, 50);
+
+    setTimeout(() => {
+        flash.style.opacity = "0";
+    }, 900);
+
+    setTimeout(() => {
+        flash.remove();
+    }, 1700);
+
+}
+
+openBtn.addEventListener("click", flashEffect);
