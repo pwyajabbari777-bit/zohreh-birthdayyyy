@@ -752,3 +752,28 @@ transition:1s;
 transition:.8s;
 
 }
+.joojeh-row{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+}
+
+.joojeh-row h1{
+margin:0;
+}
+
+.chick{
+font-size:42px;
+}
+
+.hug-icon{
+width:75px;
+height:auto;
+animation:hugFloat 4s ease-in-out infinite;
+}
+
+@keyframes hugFloat{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-5px);}
+}
