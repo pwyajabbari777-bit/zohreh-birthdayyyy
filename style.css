@@ -709,22 +709,19 @@ animation:magic .9s forwards;
 @keyframes magic{
 
 0%{
-
 opacity:0;
-
 }
 
 30%{
-
 opacity:1;
-
 }
 
 100%{
-
 opacity:0;
+}
 
 }
+
 .letter-content p{
 
 opacity:0;
