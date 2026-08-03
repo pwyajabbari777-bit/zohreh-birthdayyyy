@@ -335,3 +335,112 @@ title.style.textShadow="0 0 10px #8b5cf6";
 },2000);
 
 }
+// =========================
+// ENDING HUG ANIMATION
+// =========================
+
+const hugIcon = document.querySelector(".hug-icon");
+
+if(hugIcon){
+
+const hugObserver = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+hugIcon.animate([
+
+{transform:"scale(1) rotate(0deg)"},
+
+{transform:"scale(1.08) rotate(-4deg)"},
+
+{transform:"scale(1.08) rotate(4deg)"},
+
+{transform:"scale(1) rotate(0deg)"}
+
+],{
+
+duration:1800,
+
+iterations:1,
+
+easing:"ease-in-out"
+
+});
+
+const heart=document.createElement("div");
+
+heart.innerHTML="💜";
+
+heart.style.position="absolute";
+
+heart.style.left="50%";
+
+heart.style.top="-10px";
+
+heart.style.transform="translateX(-50%)";
+
+heart.style.fontSize="28px";
+
+heart.style.pointerEvents="none";
+
+heart.style.animation="endingHeart 2s forwards";
+
+hugIcon.parentElement.style.position="relative";
+
+hugIcon.parentElement.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},2000);
+
+}
+
+});
+
+},{threshold:.8});
+
+hugObserver.observe(hugIcon);
+
+}
+
+// =========================
+// ENDING HEART STYLE
+// =========================
+
+const endingStyle=document.createElement("style");
+
+endingStyle.innerHTML=`
+
+@keyframes endingHeart{
+
+0%{
+
+opacity:0;
+
+transform:translate(-50%,10px) scale(.5);
+
+}
+
+30%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:translate(-50%,-55px) scale(1.3);
+
+}
+
+}
+
+`;
+
+document.head.appendChild(endingStyle);
